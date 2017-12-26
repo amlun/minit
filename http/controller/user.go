@@ -101,6 +101,8 @@ func UsersAddHandler(w http.ResponseWriter, r *http.Request) {
 	var (
 		err  error
 		body []byte
+		user models.User
+		u    UserResponse
 	)
 
 	defer func() {
@@ -112,12 +114,14 @@ func UsersAddHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var user models.User
 	user.Name = req.Name
 	if err = services.AddUser(&user); err != nil {
 		return
 	}
-	body, err = json.Marshal(user)
+	u.ID = user.ID
+	u.Name = user.Name
+	u.Type = services.UserType
+	body, err = json.Marshal(u)
 }
 
 // UsersRelationshipsAddHandler
