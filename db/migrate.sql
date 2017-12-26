@@ -1,6 +1,7 @@
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(64)
+    name VARCHAR(64),
+    UNIQUE (name)
 );
 
 CREATE TABLE relationships (

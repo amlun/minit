@@ -33,6 +33,8 @@ type RelationResponse struct {
 	Type   string `json:"type"`
 }
 
+// UsersGetHandler
+// GET /users [List all users]
 func UsersGetHandler(w http.ResponseWriter, r *http.Request) {
 	var (
 		err  error
@@ -55,6 +57,8 @@ func UsersGetHandler(w http.ResponseWriter, r *http.Request) {
 	body, err = json.Marshal(us)
 }
 
+// UsersRelationshipsGetHandler
+// GET /users/:user_id/relationships [List a users all relationships]
 func UsersRelationshipsGetHandler(w http.ResponseWriter, r *http.Request) {
 	var (
 		err  error
@@ -91,6 +95,8 @@ func UsersRelationshipsGetHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+// UsersAddHandler
+// POST /users [Create a user]
 func UsersAddHandler(w http.ResponseWriter, r *http.Request) {
 	var (
 		err  error
@@ -114,6 +120,8 @@ func UsersAddHandler(w http.ResponseWriter, r *http.Request) {
 	body, err = json.Marshal(user)
 }
 
+// UsersRelationshipsAddHandler
+// PUT /users/:user_id/relationships/:other_user_id Create/update relationship state to another user.
 func UsersRelationshipsAddHandler(w http.ResponseWriter, r *http.Request) {
 	var (
 		err     error
@@ -170,6 +178,7 @@ func UsersRelationshipsAddHandler(w http.ResponseWriter, r *http.Request) {
 	body, err = json.Marshal(rlRes)
 }
 
+// send the response
 func writeBody(w http.ResponseWriter, body []byte, err error) {
 	w.Header().Set("Content-Type", "application/json")
 	if err != nil || body == nil {

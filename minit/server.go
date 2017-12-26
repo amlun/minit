@@ -19,7 +19,9 @@ func init() {
 	router.HandleFunc("/users/{owner_id}/relationships/{user_id}", controller.UsersRelationshipsAddHandler).Methods("PUT")
 }
 
+// Run minit server, serve http service
 func Run() {
+	// use env or flag?
 	services.Init("postgres://lunweiwei:123456@127.0.0.1:5432/minit?sslmode=disable")
 	router.Headers("Content-Type", "application/json")
 	log.Fatal(http.ListenAndServe(":8080", router))
