@@ -1,0 +1,5 @@
+package: github.com/amlun/minit
+import:
+  - package: github.com/go-pg/pg
+  - package: github.com/gorilla/mux
+

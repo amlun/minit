@@ -1,0 +1,16 @@
+hash: 6e497b33159cca084b6845ad56a9e590a08062282a4f9e0c8a416473bf518abf
+updated: 2017-12-26T10:12:17.310236+08:00
+imports:
+- name: github.com/go-pg/pg
+  version: ae0c997e25779e2e0c7a029203454e690fa67c88
+  subpackages:
+  - internal
+  - internal/parser
+  - internal/pool
+  - orm
+  - types
+- name: github.com/gorilla/mux
+  version: 5ab525f4fb1678e197ae59401e9050fa0b6cb5fd
+- name: github.com/jinzhu/inflection
+  version: 1c35d901db3da928c72a72d8458480cc9ade058f
+testImports: []
